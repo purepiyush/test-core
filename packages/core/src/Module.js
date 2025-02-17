@@ -14,29 +14,30 @@ import ErrorBoundary from "./components/ErrorBoundaries";
 import getStore from "./redux/store";
 import PrivacyComponent from "./components/PrivacyComponent";
 import OtpComponent from "./pages/employee/Otp/OtpCustomComponent";
-import {useInitStore} from "../libraries/src/hooks/store"
-import {Hooks } from "@egovernments/digit-ui-libraries"
-
+// import {useInitStore} from "../libraries/src/hooks/store"
+// import {Hooks } from "@egovernments/digit-ui-libraries"
 
 console.log("inside module.js of core")
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 15 * 60 * 1000,
-      gcTime: 50 * 60 * 1000,
-      retry: false,
-      retryDelay: (attemptIndex) => Infinity,
-      /*
-        enable this to have auto retry incase of failure
-        retryDelay: attemptIndex => Math.min(1000 * 3 ** attemptIndex, 60000)
-       */
-    },
-  },
-});
+const queryClient = new QueryClient(
+//   {
+//   defaultOptions: {
+//     queries: {
+//       staleTime: 15 * 60 * 1000,
+//       gcTime: 50 * 60 * 1000,
+//       retry: false,
+//       retryDelay: (attemptIndex) => Infinity,
+//       /*
+//         enable this to have auto retry incase of failure
+//         retryDelay: attemptIndex => Math.min(1000 * 3 ** attemptIndex, 60000)
+//        */
+//     },
+//   },
+// }
+);
 
 const DigitUIWrapper = ({ stateCode, enabledModules, defaultLanding }) => {
   console.log("inside DigitUIWrapper of core");
-  window.Digit.Hooks = Hooks;
+  // window.Digit.Hooks = Hooks;
   const { isLoading, data: initData={} } = Digit.Hooks.useInitStore(stateCode, enabledModules);
   if (isLoading) {
     return <Loader page={true} />;

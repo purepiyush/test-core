@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import {initLibraries} from "@egovernments/digit-ui-libraries";
-import {QueryClient, QueryClientProvider} from "@tanstack/react-query"
-
-
 
 const initDigitUI = async()=>{
   console.log("Digit Piy", Digit);
